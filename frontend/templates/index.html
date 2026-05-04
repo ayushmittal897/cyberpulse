@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="app-container">
+    <header class="app-header">
+        <h1>CyberPulse</h1>
+        <p>Visually immersive web-based cybersecurity tool</p>
+    </header>
+
+    <main class="main-content">
+        <!-- Scan Section -->
+        <section class="scan-section">
+            <form id="scan-form">
+                <input type="url" id="target-url" placeholder="https://example.com" required>
+                <button type="submit" id="scan-btn">Initiate Scan</button>
+            </form>
+            
+            <div class="radar-container" id="radar">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+                <div class="scanner-beam"></div>
+            </div>
+
+            <div class="results-header" style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; margin-bottom: 0.5rem;">
+                <h3 style="margin: 0; color: var(--accent-color); font-size: 1.2rem;">Scan Results</h3>
+                <button id="export-btn" style="display: none; padding: 0.4rem 0.8rem; font-size: 0.8rem;">Export JSON Report</button>
+            </div>
+            <div id="scan-results" class="results-grid"></div>
+        </section>
+
+        <!-- Terminal Section -->
+        <section class="terminal-section">
+            <div class="terminal-header">Terminal Log</div>
+            <div class="terminal-body" id="terminal-body">
+                <div class="typewriter">> System ready...</div>
+            </div>
+        </section>
+
+        <!-- Encoder Section -->
+        <section class="encoder-section">
+            <h2>Encoder / Decoder</h2>
+            <div class="encoder-controls" style="display: flex; gap: 1rem; align-items: center; justify-content: space-between;">
+                <select id="codec-select" style="margin-bottom: 0;">
+                    <option value="base64">Base64</option>
+                    <option value="url">URL Encoding</option>
+                    <option value="html">HTML Entities</option>
+                    <option value="hex">Hexadecimal</option>
+                    <option value="binary">Binary</option>
+                    <option value="rot13">ROT13</option>
+                    <option value="jwt">JWT Decode</option>
+                    <option value="md5">MD5 Hash</option>
+                    <option value="sha256">SHA-256 Hash</option>
+                    <option value="sha512">SHA-512 Hash</option>
+                </select>
+                <div class="encoder-export-actions" style="display: flex; gap: 0.5rem;">
+                    <button id="encoder-export-txt" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Export TXT</button>
+                    <button id="encoder-export-json" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Export JSON</button>
+                </div>
+            </div>
+            <div class="encoder-io" style="margin-top: 1rem;">
+                <textarea id="encoder-input" placeholder="Input text here..."></textarea>
+                <div class="encoder-actions">
+                    <button id="encode-btn">Encode</button>
+                    <button id="decode-btn">Decode</button>
+                </div>
+                <textarea id="encoder-output" placeholder="Output will appear here..." readonly></textarea>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+.radar-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,204,0.1) 0%, rgba(0,0,0,0) 70%);
+    border: 1px solid var(--accent-color);
+    overflow: hidden;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(0, 255, 204, 0.3);
+}
+
+.ring-1 { width: 60px; height: 60px; }
+.ring-2 { width: 120px; height: 120px; }
+.ring-3 { width: 180px; height: 180px; }
+
+.scanner-beam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: conic-gradient(from 0deg, rgba(0,255,204,0.5) 0deg, transparent 60deg);
+    transform-origin: 0 0;
+    animation: scan 2s linear infinite;
+    display: none;
+}
+
+.radar-container.active .scanner-beam {
+    display: block;
+}
+
+@keyframes scan {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.blip {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fadeout 4s forwards;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.blip.red { background-color: var(--red); box-shadow: 0 0 8px var(--red); }
+.blip.yellow { background-color: var(--yellow); box-shadow: 0 0 8px var(--yellow); }
+.blip.green { background-color: var(--green); box-shadow: 0 0 8px var(--green); }
+
+@keyframes fadeout {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}

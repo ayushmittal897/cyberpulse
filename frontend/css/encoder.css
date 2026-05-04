@@ -1,0 +1,26 @@
+.encoder-controls {
+    margin-bottom: 1rem;
+}
+
+.encoder-io {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.encoder-io textarea {
+    flex: 1;
+    height: 150px;
+    resize: vertical;
+}
+
+.encoder-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.encoder-actions button {
+    width: 100px;
+}
